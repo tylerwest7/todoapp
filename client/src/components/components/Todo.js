@@ -11,9 +11,9 @@ export default function Todo(props) {
         ) : (
           <h3 className="w-6/12 text-left opacity-100">{props.title}</h3>
         )}
-        <div className="w-6/12">
+        <div className="w-6/12 flex justify-end">
           <button
-            className="p-2 float-right bg-blue-600 rounded-md text-white"
+            className="text-xs float-right bg-blue-600 rounded-md p-2 text-white order-last"
             onClick={props.handleDelete}
           >
             Delete
@@ -21,14 +21,14 @@ export default function Todo(props) {
           {props.todoCompleted ? (
             <button
               onClick={props.handleComplete}
-              className="p-2 float-right mr-2 bg-green-200 rounded-md"
+              className="text-xs float-right mr-2 bg-green-200 p-2 rounded-md"
             >
               Task completed
             </button>
           ) : (
             <button
               onClick={props.handleComplete}
-              className="p-2 float-right mr-2 bg-red-400 rounded-md"
+              className="text-xs float-right mr-2 bg-red-400 h-full p-2 rounded-md"
             >
               Complete task
             </button>

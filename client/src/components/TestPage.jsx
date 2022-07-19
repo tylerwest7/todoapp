@@ -112,15 +112,15 @@ function TestPage() {
     <div className="w-screen h-screen bg-blue-100 flex items-center justify-center">
       <div
         style={containerStyle}
-        className="container w-8/12 bg-gray-50 rounded-md relative"
+        className="container w-11/12 bg-gray-50 rounded-md relative"
       >
         <div className="p-4 flex">
           <h1 className="w-6/12 text-left font-bold text-left float-left">
             Todo app
           </h1>
           <div className="w-6/12 text-right flex justify-end">
-            <h2 className="">{completedTodos.length + "/"}</h2>
-            <h2 className="">{todos.length + " Completed"}</h2>
+            <h2 className="">{completedTodos?.length + "/"}</h2>
+            <h2 className="">{todos?.length + " Completed"}</h2>
           </div>
         </div>
         <form className="pr-4 pl-4 w-full flex" onSubmit={handleSubmit}>
