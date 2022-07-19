@@ -156,7 +156,7 @@ function TestPage() {
           </div>
         ) : (
           <ul style={listStyle} className="bg-gray-200 m-4 rounded-md">
-            {todos.map((item, index) => (
+            {todos?.map((item, index) => (
               <Todo
                 key={item.key}
                 handleDelete={() => handleDelete(item, index)}
