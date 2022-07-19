@@ -69,7 +69,9 @@ function TestPage() {
   function completedList() {
     const completedTodoList = todos?.filter((item) => item.completed == true);
     console.log(completedTodoList);
-    setCompletedTodos(completedTodoList);
+    if (completedTodoList) {
+      setCompletedTodos(completedTodoList);
+    }
   }
 
   //Check for empty array
