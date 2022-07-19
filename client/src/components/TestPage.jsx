@@ -54,7 +54,7 @@ function TestPage() {
   function handleComplete(index) {
     setTodos(
       todos.map((item) => {
-        if (item.key == index.key) {
+        if (item.key === index.key) {
           return {
             ...item,
             completed: !item.completed,
@@ -67,8 +67,8 @@ function TestPage() {
 
   //Check for completed
   function completedList() {
-    const completedTodoList = todos.filter((item) => item.completed == true);
-    //console.log(completedTodoList);
+    const completedTodoList = todos?.filter((item) => item.completed == true);
+    console.log(completedTodoList);
     setCompletedTodos(completedTodoList);
   }
 
