@@ -76,7 +76,7 @@ function TestPage() {
 
   //Check for empty array
   function emptyList() {
-    if (todos.length === 0) {
+    if (todos?.length === 0) {
       setIsEmpty(true);
     } else {
       setIsEmpty(false);
