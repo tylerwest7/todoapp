@@ -53,7 +53,7 @@ function TestPage() {
   //Handle complete
   function handleComplete(index) {
     setTodos(
-      todos.map((item) => {
+      todos?.map((item) => {
         if (item.key === index.key) {
           return {
             ...item,
