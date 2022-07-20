@@ -11,6 +11,7 @@ function TestPage() {
   const [fieldEmpty, setFieldEmpty] = useState(true);
   const [completedTodos, setCompletedTodos] = useState([]);
   const [isEmpty, setIsEmpty] = useState(false);
+  const [storageAvail, setStorageAvail] = useState(null);
 
   const containerStyle = {
     minHeight: "40rem",
@@ -53,14 +54,16 @@ function TestPage() {
     }
   }
 
-  storageAvailable();
-
-  if (storageAvailable("localStorage")) {
-    // Yippee! We can use localStorage awesomeness
-    console.log("can use local storage");
-  } else {
-    // Too bad, no localStorage for us
-    console.log("cant use local storage");
+  function checkStorage() {
+    if (storageAvailable("localStorage")) {
+      // Yippee! We can use localStorage awesomeness
+      console.log("can use local storage");
+      setStorageAvail(true);
+    } else {
+      // Too bad, no localStorage for us
+      console.log("cant use local storage");
+      setStorageAvail(false);
+    }
   }
 
   //Check for local storage
@@ -109,7 +112,7 @@ function TestPage() {
   //Check for completed
   function completedList() {
     const completedTodoList = todos?.filter((item) => item.completed == true);
-    console.log(completedTodoList);
+    //console.log(completedTodoList);
     if (completedTodoList) {
       setCompletedTodos(completedTodoList);
     } else {
@@ -138,11 +141,22 @@ function TestPage() {
     }
   }
 
+  function getLocalStorage() {
+    try {
+      console.log("Getting local storage");
+      const data = localStorage.getItem("todos");
+      setTodos(JSON.parse(data));
+      const dataID = localStorage.getItem("todoID");
+      setTodoID(JSON.parse(dataID));
+    } catch (e) {
+      console.log("Couldnt parse local storage");
+    }
+  }
+
   useEffect(() => {
-    const data = localStorage.getItem("todos");
-    setTodos(JSON.parse(data));
-    const dataID = localStorage.getItem("todoID");
-    setTodoID(JSON.parse(dataID));
+    getLocalStorage();
+    storageAvailable();
+    checkStorage();
   }, []);
 
   useEffect(() => {
