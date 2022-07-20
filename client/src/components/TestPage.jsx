@@ -71,6 +71,8 @@ function TestPage() {
     console.log(completedTodoList);
     if (completedTodoList) {
       setCompletedTodos(completedTodoList);
+    } else {
+      setCompletedTodos({});
     }
   }
 
