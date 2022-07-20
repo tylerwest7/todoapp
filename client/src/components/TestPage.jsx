@@ -7,7 +7,7 @@ function TestPage() {
   const [todoID, setTodoID] = useState(1);
   const [todoText, setTodoText] = useState("");
   const [todo, setTodo] = useState({});
-  const [todos, setTodos] = useState([{}]);
+  const [todos, setTodos] = useState([]);
   const [fieldEmpty, setFieldEmpty] = useState(true);
   const [completedTodos, setCompletedTodos] = useState([]);
   const [isEmpty, setIsEmpty] = useState(false);
