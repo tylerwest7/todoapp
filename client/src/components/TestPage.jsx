@@ -56,11 +56,9 @@ function TestPage() {
 
   function checkStorage() {
     if (storageAvailable("localStorage")) {
-      // Yippee! We can use localStorage awesomeness
       console.log("can use local storage");
       setStorageAvail(true);
     } else {
-      // Too bad, no localStorage for us
       console.log("cant use local storage");
       setStorageAvail(false);
     }
