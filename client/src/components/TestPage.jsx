@@ -201,7 +201,7 @@ function TestPage() {
         <form className="pr-4 pl-4 w-full flex" onSubmit={handleSubmit}>
           <input
             placeholder="Enter a todo (ex. Wash the dishes)"
-            className="rounded-l-md bg-gray-100 w-9/12 h-12 p-4"
+            className="text-sm rounded-l-md bg-gray-100 w-9/12 h-12 p-4 overflow-ellipsis"
             type="text"
             id={todoID}
             name="todo"
