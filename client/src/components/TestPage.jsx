@@ -152,17 +152,21 @@ function TestPage() {
   }
 
   useEffect(() => {
-    getLocalStorage();
-    storageAvailable();
-    checkStorage();
+    if (todos) {
+      getLocalStorage();
+      storageAvailable();
+      checkStorage();
+    }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-    localStorage.setItem("todoID", JSON.stringify(todoID));
-    completedList();
-    emptyList();
-    emptyField();
+    if (todos) {
+      localStorage.setItem("todos", JSON.stringify(todos));
+      localStorage.setItem("todoID", JSON.stringify(todoID));
+      completedList();
+      emptyList();
+      emptyField();
+    }
   }, [todos, todoID, todoText]);
 
   return (
