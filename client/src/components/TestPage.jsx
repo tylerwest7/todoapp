@@ -12,6 +12,7 @@ function TestPage() {
   const [completedTodos, setCompletedTodos] = useState([]);
   const [isEmpty, setIsEmpty] = useState(false);
   const [storageAvail, setStorageAvail] = useState(null);
+  const hasVisited = localStorage.getItem("visited");
 
   const containerStyle = {
     minHeight: "40rem",
@@ -151,21 +152,34 @@ function TestPage() {
     }
   }
 
+  function visited() {
+    localStorage.setItem("visited", true);
+    console.log(hasVisited);
+    window.location.reload();
+  }
+
+  //UseEffects
+
   useEffect(() => {
-    if (todos) {
+    if (todos && hasVisited) {
+      console.log("Has visited");
       getLocalStorage();
       storageAvailable();
       checkStorage();
+    } else {
+      visited();
     }
   }, []);
 
   useEffect(() => {
-    if (todos) {
+    if (todos && hasVisited) {
       localStorage.setItem("todos", JSON.stringify(todos));
       localStorage.setItem("todoID", JSON.stringify(todoID));
       completedList();
       emptyList();
       emptyField();
+    } else {
+      visited();
     }
   }, [todos, todoID, todoText]);
 
