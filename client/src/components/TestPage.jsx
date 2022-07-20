@@ -13,6 +13,7 @@ function TestPage() {
   const [isEmpty, setIsEmpty] = useState(false);
   const [storageAvail, setStorageAvail] = useState(null);
   const hasVisited = localStorage.getItem("visited");
+  const [todoPercent, setTodoPercent] = useState();
 
   const containerStyle = {
     minHeight: "40rem",
@@ -57,10 +58,10 @@ function TestPage() {
 
   function checkStorage() {
     if (storageAvailable("localStorage")) {
-      console.log("can use local storage");
+      //console.log("can use local storage");
       setStorageAvail(true);
     } else {
-      console.log("cant use local storage");
+      //console.log("cant use local storage");
       setStorageAvail(false);
     }
   }
@@ -71,7 +72,7 @@ function TestPage() {
     e.preventDefault();
 
     if (fieldEmpty) {
-      return console.log("Empty");
+      return console.log("");
     } else {
       //Create and set new todo
       setTodoID(todoID + 1);
@@ -142,7 +143,7 @@ function TestPage() {
 
   function getLocalStorage() {
     try {
-      console.log("Getting local storage");
+      //console.log("Getting local storage");
       const data = localStorage.getItem("todos");
       setTodos(JSON.parse(data));
       const dataID = localStorage.getItem("todoID");
@@ -154,7 +155,7 @@ function TestPage() {
 
   function visited() {
     localStorage.setItem("visited", true);
-    console.log(hasVisited);
+    //console.log(hasVisited);
     window.location.reload();
   }
 
@@ -162,7 +163,7 @@ function TestPage() {
 
   useEffect(() => {
     if (todos && hasVisited) {
-      console.log("Has visited");
+      //console.log("Has visited");
       getLocalStorage();
       storageAvailable();
       checkStorage();
